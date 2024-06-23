@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{6a6ab599-209d-4196-b6aa-cd1786b9fcb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{f4a64948-c74d-490a-aa3d-8ab4f698ffce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{ac505c36-ea1f-4b42-82be-1c23c415ab78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\ThirdPartyCommands">
+      <UniqueIdentifier>{7888ee6d-0904-4101-9879-18af0ae70f2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\ClientCommands">
+      <UniqueIdentifier>{c8087eba-aa98-42fe-8f57-71979b5b1b54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\BankingSystemCommands">
+      <UniqueIdentifier>{72948093-c132-4b34-892f-ac93f6a81e9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TaksHierarchy">
+      <UniqueIdentifier>{332e55d0-57d4-4dac-a7d0-a602e4d122f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SystemLauncher">
+      <UniqueIdentifier>{2176c4fd-8ada-4558-b52b-9b159dade6f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UsersHierarchy">
+      <UniqueIdentifier>{95891f87-09d9-4454-819c-f4e887f367cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands\BankerCommands">
+      <UniqueIdentifier>{30928c3f-a517-45c2-9431-a29bab90bb2c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UsersHierarchy\Banker.cpp">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="UsersHierarchy\Client.cpp">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="UsersHierarchy\User.cpp">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="UsersHierarchy\ThirdPartyEmployee.cpp">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksHierarchy\AccountPlaceholderTask.cpp">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksHierarchy\Task.cpp">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksHierarchy\OpenAccountTask.cpp">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksHierarchy\DataPlaceholderTask.cpp">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksHierarchy\CloseAccountTask.cpp">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksHierarchy\ChangeBankTask.cpp">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Account.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\BankingSystem.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Cheque.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankingSystemCommands\BankingSystemCommands.cpp">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\CheckAvlCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\ClientCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\Commands.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankingSystemCommands\CreateBankCommands.cpp">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankingSystemCommands\LogInCommands.cpp">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\ListAccountsCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\CloseAccountCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Message.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\MyString.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankingSystemCommands\SignUpCommands.cpp">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\RedeemChequeCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\OpenAccountCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\ShowMessagesCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ClientCommands\ChangeBankCommands.cpp">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ThirdPartyCommands\SendChequeCommands.cpp">
+      <Filter>Source Files\Commands\ThirdPartyCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\ThirdPartyCommands\ThirdPartyCommands.cpp">
+      <Filter>Source Files\Commands\ThirdPartyCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Bank.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankerCommands\BankerCommands.cpp">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankerCommands\ShowTasksCommands.cpp">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankerCommands\ViewTaskCommands.cpp">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankerCommands\ApproveTaskCommands.cpp">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankerCommands\DisapproveTaskCommands.cpp">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandsHierarchy\BankerCommands\ValidateTaskCommands.cpp">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClCompile>
+    <ClCompile Include="BankingSystemLauncher\BankingSystemLauncher.cpp">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClCompile>
+    <ClCompile Include="BankingSystemLauncher\ClientLauncher.cpp">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClCompile>
+    <ClCompile Include="BankingSystemLauncher\ThirdPartyLauncher.cpp">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClCompile>
+    <ClCompile Include="BankingSystemLauncher\BankerLauncher.cpp">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClCompile>
+    <ClCompile Include="Helpers\HelperFuncs.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="TasksHierarchy\TaskFactory.cpp">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="UsersHierarchy\Banker.h">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersHierarchy\Client.h">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersHierarchy\User.h">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersHierarchy\ThirdPartyEmployee.h">
+      <Filter>Source Files\UsersHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksHierarchy\Task.h">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksHierarchy\OpenAccountTask.h">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksHierarchy\DataPlaceholderTask.h">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksHierarchy\CloseAccountTask.h">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksHierarchy\AccountPlaceholderTask.h">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Account.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Bank.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\BankingSystem.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Cheque.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankingSystemCommands\BankingSystemCommands.h">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\CloseAccountCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\CheckAvlCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\ClientCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankingSystemCommands\CreateBankCommands.h">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankingSystemCommands\LogInCommands.h">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\ListAccountsCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Message.h">
+      <Filter>Source Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\MyVector.hpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\MyString.h">
+      <Filter>Source Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\polymorphic_ptr.hpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankingSystemCommands\SignUpCommands.h">
+      <Filter>Source Files\Commands\BankingSystemCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\OpenAccountCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\RedeemChequeCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\ShowMessagesCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\Commands.h">
+      <Filter>Source Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ClientCommands\ChangeBankCommands.h">
+      <Filter>Source Files\Commands\ClientCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ThirdPartyCommands\SendChequeCommands.h">
+      <Filter>Source Files\Commands\ThirdPartyCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\ThirdPartyCommands\ThirdPartyCommands.h">
+      <Filter>Source Files\Commands\ThirdPartyCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankerCommands\BankerCommands.h">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankerCommands\ShowTasksCommands.h">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankerCommands\ViewTaskCommands.h">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankerCommands\ApproveTaskCommands.h">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksHierarchy\ChangeBankTask.h">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankerCommands\DisapproveTaskCommands.h">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="CommandsHierarchy\BankerCommands\ValidateTaskCommands.h">
+      <Filter>Source Files\Commands\BankerCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="BankingSystemLauncher\BankingSystemLauncher.h">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClInclude>
+    <ClInclude Include="BankingSystemLauncher\ClientLauncher.h">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClInclude>
+    <ClInclude Include="BankingSystemLauncher\ThirdPartyLauncher.h">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClInclude>
+    <ClInclude Include="BankingSystemLauncher\BankerLauncher.h">
+      <Filter>Source Files\SystemLauncher</Filter>
+    </ClInclude>
+    <ClInclude Include="Helpers\HelperFuncs.h">
+      <Filter>Source Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="TasksHierarchy\TaskFactory.h">
+      <Filter>Source Files\TaksHierarchy</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
