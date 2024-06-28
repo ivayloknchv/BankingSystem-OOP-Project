@@ -86,7 +86,7 @@ void ApproveTaskCommands::executeChangeTask(BankingSystem* system, Task* task, s
 
 		MyString EGN = taskPtr->getEGN();
 
-		Account newAcc(taskPtr->getFirstName(), taskPtr->getLastName(), EGN, taskPtr->getAge(), taskPtr->getCurrentBank());
+		Account newAcc(taskPtr->getFirstName(), taskPtr->getLastName(), EGN, taskPtr->getAge(), _ref.getWorkplace());
 		newAcc.addBalance(taskPtr->getBalance());
 
 		bankRef.addAccount(newAcc);
