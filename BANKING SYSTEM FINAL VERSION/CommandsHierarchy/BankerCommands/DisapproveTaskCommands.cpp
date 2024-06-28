@@ -4,15 +4,20 @@
 
 void DisapproveTaskCommands::sendMessage(BankingSystem* system, Task* task)
 {
-	MyString text;
+	char msgBuff[512]{};
 	std::cout << "Enter reason for rejection>> ";
-	std::cin >> text;
+	std::cin.ignore();
+	std::cin.getline(msgBuff, 512);
+	MyString msg(msgBuff);
 
-	TaskType type = task->getType();
+	DataPlaceholderTask* newTaskPtr = nullptr;
+	if (newTaskPtr = dynamic_cast<DataPlaceholderTask*>(task))
+	{
+		Client& clRef = system->getClientByEGN(newTaskPtr->getEGN());
+		clRef.addMessage(Message("Your request wasn't approved. Reason: " + msg));
+		std::cout << std::endl;
+	}
 
-	DataPlaceholderTask* newTaskPtr = static_cast<DataPlaceholderTask*>(task);
-	Client& clRef = system->getClientByEGN(newTaskPtr->getEGN());
-	clRef.addMessage(Message("Your request wasn't approved. Reason: " +text));
 }
 
 DisapproveTaskCommands::DisapproveTaskCommands(Banker& ref) : BankerCommands(ref)
