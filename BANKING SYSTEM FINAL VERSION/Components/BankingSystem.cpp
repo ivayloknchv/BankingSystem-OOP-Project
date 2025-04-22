@@ -214,6 +214,16 @@ void BankingSystem::loadThirdParty()
 	ifs.close();
 }
 
+BankingSystem::BankingSystem()
+{
+	readFromFile();
+}
+
+BankingSystem::~BankingSystem()
+{
+	writeToFile();
+}
+
 void BankingSystem::addBank(const Bank& bank)
 {
 	if (findBankByName(bank.getBankName()) != _banks.size())
