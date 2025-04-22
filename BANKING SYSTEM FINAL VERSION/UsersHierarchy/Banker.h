@@ -22,7 +22,7 @@ public:
 	const MyString& getWorkplace() const;
 
 	void addTask(Task* ptr);
-	void addTask(const Task& obj);
+	void addTask(const polymorphic_ptr<Task>& task);
 
 	void removeTaskAt(size_t idx);
 	void previewTasks() const;
