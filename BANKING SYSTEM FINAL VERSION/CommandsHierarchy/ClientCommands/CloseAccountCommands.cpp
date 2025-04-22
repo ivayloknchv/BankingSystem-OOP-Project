@@ -21,20 +21,22 @@ void CloseAccountCommands::execute(BankingSystem* system)
 	std::cout << "Enter account ID>> ";
 	std::cin >> id;
 
-	Task* obj = nullptr;
-
 	try
 	{
-		Bank& bankRef = system->getBankByName(bankName);
-		const Account& ref = bankRef.getAccountById(id);
+		const Bank& bankRef = system->getBankByName(bankName);
+		const Account& accRef = bankRef.getAccountById(id);
 		
-		obj = new CloseAccountTask(ref.getFirstName(), ref.getLastName(), ref.getEGN(), ref.getAge(), bankName, ref.getId(), ref.getBalance());
+		if (accRef.getEGN() != _ref.getEGN())
+		{
+			throw std::exception("Trying to access someone else's account!");
+		}
 
-		bankRef.assignTask(obj);
+		polymorphic_ptr<Task> task = new CloseAccountTask(accRef.getFirstName(), accRef.getLastName(), accRef.getEGN(), 
+			accRef.getAge(), bankName, accRef.getId(), accRef.getBalance());
+		system->assignTaskToBank(bankName, task);
 	}
 	catch (std::invalid_argument& e)
 	{
-		delete obj;
 		std::cout << e.what() << std::endl << std::endl;
 	}
 }
