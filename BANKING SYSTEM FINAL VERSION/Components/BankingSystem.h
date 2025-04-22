@@ -85,4 +85,5 @@ public:
 	Client& getClientByEGN(const MyString& EGN);
 
 	void sendCheque(const MyString& EGN, const Cheque& Cheque, const MyString& sender);
+	void assignTaskToBank(const MyString& bankName, const polymorphic_ptr<Task>& task);
 };
