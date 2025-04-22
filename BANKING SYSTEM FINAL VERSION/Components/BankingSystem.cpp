@@ -452,6 +452,11 @@ void BankingSystem::sendCheque(const MyString& EGN, const Cheque& cheque, const 
 	client.addMessage("You have a check assigned to you by " + sender);
 }
 
+void BankingSystem::assignTaskToBank(const MyString& bankName, const polymorphic_ptr<Task>& task)
+{
+	getBankByName(bankName).assignTask(task);
+}
+
 void BankingSystem::writeToFile() const
 {
 	saveClients();
