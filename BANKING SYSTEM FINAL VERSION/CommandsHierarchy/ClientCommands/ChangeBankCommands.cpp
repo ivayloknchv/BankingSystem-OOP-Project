@@ -21,11 +21,9 @@ void ChangeBankCommands::execute(BankingSystem* system)
     std::cout << "Enter account id>> ";
     std::cin >> id;
 
-    Task* task = nullptr;
-
     try
     {
-        Bank& bankRef=system->getBankByName(currentBank);
+        const Bank& bankRef=system->getBankByName(currentBank);
         const Account& accRef = bankRef.getAccountById(id);
 
         if (accRef.getEGN() != _ref.getEGN())
@@ -33,19 +31,16 @@ void ChangeBankCommands::execute(BankingSystem* system)
             throw std::invalid_argument("This isn't the owner of the account!");
         }
 
-        Bank& newBankRef = system->getBankByName(newBank);
+        polymorphic_ptr<Task> task = new ChangeBankTask(accRef.getFirstName(), accRef.getLastName(), 
+            accRef.getEGN(), accRef.getAge(), currentBank, accRef.getId(), accRef.getBalance(), newBank);
 
-        task = new ChangeBankTask(accRef.getFirstName(), accRef.getLastName(), accRef.getEGN(), accRef.getAge(), currentBank,
-            accRef.getId(), accRef.getBalance(), newBank);
-
-       newBankRef.assignTask(task);
+        system->assignTaskToBank(newBank, task);
 
        std::cout << "Successfully sent a request for moving to another bank!" << std::endl << std::endl;
     }
 
     catch(std::invalid_argument& e)
     {
-        delete task;
         std::cout << e.what() << std::endl<<std::endl;
     }
 }
