@@ -83,4 +83,6 @@ public:
 
 	const Client& getClientByEGN(const MyString& EGN) const;
 	Client& getClientByEGN(const MyString& EGN);
+
+	void sendCheque(const MyString& EGN, const Cheque& Cheque, const MyString& sender);
 };
