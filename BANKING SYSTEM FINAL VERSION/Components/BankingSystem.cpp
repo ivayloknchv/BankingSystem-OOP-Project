@@ -445,6 +445,13 @@ Client& BankingSystem::getClientByEGN(const MyString& EGN)
 	return _clients[idx];
 }
 
+void BankingSystem::sendCheque(const MyString& EGN, const Cheque& cheque, const MyString& sender)
+{
+	Client& client = getClientByEGN(EGN);
+	client.addCheque(cheque);
+	client.addMessage("You have a check assigned to you by " + sender);
+}
+
 void BankingSystem::writeToFile() const
 {
 	saveClients();
