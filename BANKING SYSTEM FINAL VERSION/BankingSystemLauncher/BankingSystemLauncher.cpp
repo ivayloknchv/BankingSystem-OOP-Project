@@ -45,7 +45,7 @@ void BankingSystemLauncher::handleLoggedUser(BankingSystem& system)
 void BankingSystemLauncher::run()
 {
 	BankingSystem& bs=BankingSystem::getInstance();
-	bs.readFromFile();
+
 	CreateBankCommands createBank;
 	SignUpCommands signUp;
 	LogInCommands logIn;
@@ -77,7 +77,6 @@ void BankingSystemLauncher::run()
 			break;
 			
 		case 4:
-			bs.writeToFile();
 			std::cout << "Successfully exited the system!" << std::endl << std::endl;
 			return;
 
