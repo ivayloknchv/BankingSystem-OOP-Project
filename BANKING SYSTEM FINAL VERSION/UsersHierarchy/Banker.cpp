@@ -30,9 +30,9 @@ void Banker::addTask(Task* ptr)
 	tasks.push_back(ptr);
 }
 
-void Banker::addTask(const Task& obj)
+void Banker::addTask(const polymorphic_ptr<Task>& task)
 {
-	tasks.push_back(obj.clone());
+	tasks.push_back(task);
 }
 
 void Banker::removeTaskAt(size_t idx)
