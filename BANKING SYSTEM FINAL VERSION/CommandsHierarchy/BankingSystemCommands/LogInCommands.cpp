@@ -9,7 +9,7 @@ void LogInCommands::execute(BankingSystem* system)
 {
     try
     {
-        MyString EGN, lastName, password;
+        MyString EGN, password;
 
         std::cout << "Enter EGN>> ";
         std::cin >> EGN;
