@@ -119,6 +119,17 @@ void Bank::assignTask(Task* ptr)
 	_bankers[idx].addTask(ptr);
 }
 
+void Bank::assignTask(const polymorphic_ptr<Task>& task)
+{
+	if (getBankersCount() == 0)
+	{
+		throw std::invalid_argument("No bankers employes in the bank yet!");
+	}
+	size_t idx = findLeastEmployed();
+
+	_bankers[idx].addTask(task);
+}
+
 void Bank::previewAccountsOfClient(const Client& client) const
 {
 	size_t size = _accounts.size();
