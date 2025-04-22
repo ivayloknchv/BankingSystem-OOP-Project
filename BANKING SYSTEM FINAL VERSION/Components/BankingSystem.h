@@ -37,6 +37,9 @@ class BankingSystem
 	size_t findClientByEGN(const MyString& EGN) const;
 	size_t findThirdPartyByEGN(const MyString& EGN) const;
 
+	void writeToFile() const;
+	void readFromFile();
+
 	void saveClients() const;
 	void saveBanks() const;
 	void saveThirdParty() const;
@@ -45,7 +48,8 @@ class BankingSystem
 	void loadBanks();
 	void loadThirdParty();
 
-	BankingSystem() = default;
+	BankingSystem();
+	~BankingSystem();
 
 public:
 
@@ -79,7 +83,4 @@ public:
 
 	const Client& getClientByEGN(const MyString& EGN) const;
 	Client& getClientByEGN(const MyString& EGN);
-
-	void writeToFile() const;
-	void readFromFile();
 };
