@@ -28,6 +28,7 @@ public:
 	void addAccount(Account&& acc);
 
 	void assignTask(Task* ptr);
+	void assignTask(const polymorphic_ptr<Task>& task);
 
 	const MyString& getBankName() const;
 	size_t getBankersCount() const;
