@@ -43,8 +43,8 @@ public:
 
 	bool accountExists(unsigned accId) const;
 
-	void previewAccountsOfClient(const Client& client) const;
-	void changeBalanceOfAccount(unsigned id, double sum);
+	void previewAccountsOfClient(const MyString& clientEGN) const;
+	void changeBalanceOfAccount(unsigned id, const MyString& EGN, double sum);
 
 	void writeToFile(std::ofstream& ofs) const;
 	void readFromFile(std::ifstream& ifs);

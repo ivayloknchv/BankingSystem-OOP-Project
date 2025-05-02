@@ -1,17 +1,18 @@
 #include "OpenAccountTask.h"
 #include <utility>
 #include <iostream>
+#include "../Components/BankingSystem.h"
 
-OpenAccountTask::OpenAccountTask() : DataPlaceholderTask(TaskType::Open)
+OpenAccountTask::OpenAccountTask() : Task(TaskType::Open)
 {
 }
 
-OpenAccountTask::OpenAccountTask(const MyString& firstName, const MyString& lastName, const MyString& EGN, unsigned age):
-	DataPlaceholderTask(TaskType::Open, firstName, lastName, EGN, age)
+OpenAccountTask::OpenAccountTask(const MyString& firstName, const MyString& lastName, const MyString& EGN, unsigned age, const MyString& bankName):
+	Task(TaskType::Open, firstName, lastName, EGN, age), _bankName(bankName)
 {}
 
-OpenAccountTask::OpenAccountTask(MyString && firstName, MyString && lastName, MyString && EGN, unsigned age):
-	DataPlaceholderTask(TaskType::Open, std::move(firstName), std::move(lastName), std::move(EGN), age)
+OpenAccountTask::OpenAccountTask(MyString && firstName, MyString && lastName, MyString && EGN, unsigned age, MyString&& bankName):
+	Task(TaskType::Open, std::move(firstName), std::move(lastName), std::move(EGN), age), _bankName(std::move(bankName))
 {}
 
 Task* OpenAccountTask::clone() const
@@ -22,9 +23,8 @@ Task* OpenAccountTask::clone() const
 void OpenAccountTask::viewTask() const
 {
 	std::cout << "Open request from" << std::endl;
-	std::cout << "Name: " << _firstName << " " << _lastName << std::endl;
-	std::cout << "EGN: " << _EGN << std::endl;
-	std::cout << "Age: " << _age << std::endl;
+	Task::viewTask();
+	std::cout << "Bank: " << _bankName << std::endl;
 }
 
 void OpenAccountTask::getTaskPreview() const
@@ -34,10 +34,31 @@ void OpenAccountTask::getTaskPreview() const
 
 void OpenAccountTask::writeToFile(std::ofstream& ofs) const
 {
-	DataPlaceholderTask::writeToFile(ofs);
+	Task::writeToFile(ofs);
+	writeStringToFile(ofs, _bankName);
 }
 
 void OpenAccountTask::readFromFile(std::ifstream& ifs)
 {
-	DataPlaceholderTask::readFromFile(ifs);
+	Task::readFromFile(ifs);
+	_bankName = readStringFromFile(ifs);
+}
+
+void OpenAccountTask::approve() const
+{
+	BankingSystem& system = BankingSystem::getInstance();
+	system.getBankByName(_bankName).addAccount(std::move(Account(_firstName, _lastName, _EGN, _age, _bankName)));
+	system.getClientByEGN(_EGN).addMessage(std::move(Message("Created an account in " + _bankName)));
+}
+
+void OpenAccountTask::disapprove() const
+{
+	std::cout << "Enter reason to disapprove>> ";
+	char buff[1024]{};
+	std::cin.getline(buff, 1024);
+
+	BankingSystem& system = BankingSystem::getInstance();
+
+	MyString msg = "Your request to open an account in " + _bankName + " was disapproved. Reason: " + msg;
+	system.getClientByEGN(_EGN).addMessage(std::move(Message(msg)));
 }

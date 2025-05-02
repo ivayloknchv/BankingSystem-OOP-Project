@@ -3,6 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 #include "../TasksHierarchy/TaskFactory.h"
+#include "../TasksHierarchy/ChangeBankTask.h"
 
 Banker::Banker(const MyString& firstName, const MyString& lastName, const MyString& EGN, const MyString& password, unsigned age, const MyString& workplace)
 	:User(firstName, lastName, EGN, password, age), _workplace(workplace)
@@ -68,12 +69,36 @@ void Banker::viewTask(size_t idx) const
 		throw std::invalid_argument("No tasks assigned!");
 	}
 
-	if (idx <= 0 || idx > tasks.size())
+	if (idx > tasks.size())
 	{
 		throw std::invalid_argument("Invalid range!");
 	}
 
 	tasks[idx - 1]->viewTask();
+}
+
+void Banker::approveTask(size_t idx)
+{
+	tasks[idx-1]->approve();
+	tasks.erase(idx-1);
+}
+
+void Banker::disapproveTask(size_t idx)
+{
+	tasks[idx-1]->disapprove();
+	tasks.erase(idx-1);
+}
+
+void Banker::validateTask(size_t idx)
+{
+	if (ChangeBankTask* ptr = dynamic_cast<ChangeBankTask*>(tasks[idx-1].get()))
+	{
+		ptr->validate();
+	}
+	else
+	{
+		throw std::invalid_argument("Only change bank tasks can be validated!");
+	}
 }
 
 size_t Banker::getTasksCount() const
@@ -146,4 +171,13 @@ void Banker::readFromFile(std::ifstream& ifs)
 	{
 		tasks.push_back(TaskFactory::create(ifs));
 	}
+}
+
+void Banker::help() const
+{
+	std::cout << "tasks" << std::endl;
+	std::cout << "view [task_idx]" << std::endl;
+	std::cout << "approve [task_idx]" << std::endl;
+	std::cout << "disapprove [task_idx] [message]" << std::endl;
+	std::cout << "validate [task_idx]" << std::endl;
 }

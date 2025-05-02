@@ -130,14 +130,14 @@ void Bank::assignTask(const polymorphic_ptr<Task>& task)
 	_bankers[idx].addTask(task);
 }
 
-void Bank::previewAccountsOfClient(const Client& client) const
+void Bank::previewAccountsOfClient(const MyString& clientEGN) const
 {
 	size_t size = _accounts.size();
 	bool isEmpty = true;
 
 	for (size_t i = 0; i < size; i++)
 	{
-		if (client.getEGN() == _accounts[i].getEGN())
+		if (clientEGN == _accounts[i].getEGN())
 		{
 			isEmpty = false;
 
@@ -147,7 +147,7 @@ void Bank::previewAccountsOfClient(const Client& client) const
 
 	if (isEmpty)
 	{
-		std::cout << client.getFirstName() << ' ' << client.getLastName() << ' ' << "is not a client of " << _bankName << std::endl;
+		std::cout << "Client with EGN " << clientEGN << ' ' << "is not a client of " << _bankName << std::endl;
 	}
 }
 
@@ -200,7 +200,7 @@ bool Bank::bankerExists(const MyString& EGN) const
 	return (findBankerByEGN(EGN) != _bankers.size());
 }
 
-void Bank::changeBalanceOfAccount(unsigned id, double sum)
+void Bank::changeBalanceOfAccount(unsigned id, const MyString& EGN, double sum)
 {
 	size_t idx = findAccountById(id);
 
@@ -208,6 +208,12 @@ void Bank::changeBalanceOfAccount(unsigned id, double sum)
 	{
 		throw std::invalid_argument("Account with this ID doesn't exist");
 	}
+
+	if (_accounts[idx].getEGN() != EGN)
+	{
+		throw std::invalid_argument("Trying to access someone else's account!");
+	}
+
 	_accounts[idx].addBalance(sum);
 }
 
