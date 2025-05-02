@@ -17,7 +17,6 @@ void ViewTaskCommands::execute(BankingSystem* system)
 		std::cout << "Enter task idx>> ";
 		std::cin >> idx;
 
-		std::cout << std::endl;
 		_ref.viewTask(idx);
 		std::cout << std::endl;
 	}

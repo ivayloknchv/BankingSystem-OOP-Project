@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{4164012A-23E8-4249-8E22-7E76067A67C0}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bankingsystemlauncher\BankerLauncher.cpp" />
+    <ClCompile Include="bankingsystemlauncher\BankingSystemLauncher.cpp" />
+    <ClCompile Include="bankingsystemlauncher\ClientLauncher.cpp" />
+    <ClCompile Include="bankingsystemlauncher\ThirdPartyLauncher.cpp" />
+    <ClCompile Include="commandshierarchy\bankercommands\ApproveTaskCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankercommands\BankerCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankercommands\DisapproveTaskCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankercommands\ShowTasksCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankercommands\ValidateTaskCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankercommands\ViewTaskCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankingsystemcommands\BankingSystemCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankingsystemcommands\CreateBankCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankingsystemcommands\LogInCommands.cpp" />
+    <ClCompile Include="commandshierarchy\bankingsystemcommands\SignUpCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\ChangeBankCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\CheckAvlCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\ClientCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\CloseAccountCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\ListAccountsCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\OpenAccountCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\RedeemChequeCommands.cpp" />
+    <ClCompile Include="commandshierarchy\clientcommands\ShowMessagesCommands.cpp" />
+    <ClCompile Include="commandshierarchy\Commands.cpp" />
+    <ClCompile Include="commandshierarchy\thirdpartycommands\SendChequeCommands.cpp" />
+    <ClCompile Include="commandshierarchy\thirdpartycommands\ThirdPartyCommands.cpp" />
+    <ClCompile Include="components\Account.cpp" />
+    <ClCompile Include="components\Bank.cpp" />
+    <ClCompile Include="components\BankingSystem.cpp" />
+    <ClCompile Include="components\Cheque.cpp" />
+    <ClCompile Include="components\Message.cpp" />
+    <ClCompile Include="helpers\HelperFuncs.cpp" />
+    <ClCompile Include="helpers\MyString.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="taskshierarchy\AccountPlaceholderTask.cpp" />
+    <ClCompile Include="taskshierarchy\ChangeBankTask.cpp" />
+    <ClCompile Include="taskshierarchy\CloseAccountTask.cpp" />
+    <ClCompile Include="taskshierarchy\DataPlaceholderTask.cpp" />
+    <ClCompile Include="taskshierarchy\OpenAccountTask.cpp" />
+    <ClCompile Include="taskshierarchy\Task.cpp" />
+    <ClCompile Include="taskshierarchy\TaskFactory.cpp" />
+    <ClCompile Include="usershierarchy\Banker.cpp" />
+    <ClCompile Include="usershierarchy\Client.cpp" />
+    <ClCompile Include="usershierarchy\ThirdPartyEmployee.cpp" />
+    <ClCompile Include="usershierarchy\User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bankingsystemlauncher\BankerLauncher.h" />
+    <ClInclude Include="bankingsystemlauncher\BankingSystemLauncher.h" />
+    <ClInclude Include="bankingsystemlauncher\ClientLauncher.h" />
+    <ClInclude Include="bankingsystemlauncher\ThirdPartyLauncher.h" />
+    <ClInclude Include="commandshierarchy\bankercommands\ApproveTaskCommands.h" />
+    <ClInclude Include="commandshierarchy\bankercommands\BankerCommands.h" />
+    <ClInclude Include="commandshierarchy\bankercommands\DisapproveTaskCommands.h" />
+    <ClInclude Include="commandshierarchy\bankercommands\ShowTasksCommands.h" />
+    <ClInclude Include="commandshierarchy\bankercommands\ValidateTaskCommands.h" />
+    <ClInclude Include="commandshierarchy\bankercommands\ViewTaskCommands.h" />
+    <ClInclude Include="commandshierarchy\bankingsystemcommands\BankingSystemCommands.h" />
+    <ClInclude Include="commandshierarchy\bankingsystemcommands\CreateBankCommands.h" />
+    <ClInclude Include="commandshierarchy\bankingsystemcommands\LogInCommands.h" />
+    <ClInclude Include="commandshierarchy\bankingsystemcommands\SignUpCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\ChangeBankCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\CheckAvlCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\ClientCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\CloseAccountCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\ListAccountsCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\OpenAccountCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\RedeemChequeCommands.h" />
+    <ClInclude Include="commandshierarchy\clientcommands\ShowMessagesCommands.h" />
+    <ClInclude Include="commandshierarchy\Commands.h" />
+    <ClInclude Include="commandshierarchy\thirdpartycommands\SendChequeCommands.h" />
+    <ClInclude Include="commandshierarchy\thirdpartycommands\ThirdPartyCommands.h" />
+    <ClInclude Include="components\Account.h" />
+    <ClInclude Include="components\Bank.h" />
+    <ClInclude Include="components\BankingSystem.h" />
+    <ClInclude Include="components\Cheque.h" />
+    <ClInclude Include="components\Message.h" />
+    <ClInclude Include="helpers\HelperFuncs.h" />
+    <ClInclude Include="helpers\MyString.h" />
+    <ClInclude Include="helpers\MyVector.hpp" />
+    <ClInclude Include="helpers\polymorphic_ptr.hpp" />
+    <ClInclude Include="taskshierarchy\AccountPlaceholderTask.h" />
+    <ClInclude Include="taskshierarchy\ChangeBankTask.h" />
+    <ClInclude Include="taskshierarchy\CloseAccountTask.h" />
+    <ClInclude Include="taskshierarchy\DataPlaceholderTask.h" />
+    <ClInclude Include="taskshierarchy\OpenAccountTask.h" />
+    <ClInclude Include="taskshierarchy\Task.h" />
+    <ClInclude Include="taskshierarchy\TaskFactory.h" />
+    <ClInclude Include="usershierarchy\Banker.h" />
+    <ClInclude Include="usershierarchy\Client.h" />
+    <ClInclude Include="usershierarchy\ThirdPartyEmployee.h" />
+    <ClInclude Include="usershierarchy\User.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

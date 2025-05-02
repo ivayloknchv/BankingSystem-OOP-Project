@@ -58,6 +58,12 @@ public:
 	BankingSystem(const BankingSystem& other) = delete;
 	BankingSystem& operator=(const BankingSystem& other) = delete;
 
+	void logIn(const MyString& EGN,  const MyString& password);
+	void logOut();
+
+	LoggedType getLoggedType() const;
+	User* getLoggedUser();
+
 	void addBank(const Bank& bank);
 	void addBank(Bank&& bank);
 
@@ -78,28 +84,6 @@ public:
 	const Client& getClientByEGN(const MyString& EGN) const;
 	Client& getClientByEGN(const MyString& EGN);
 
-	// common user interface
-	void whoAmI() const;
-	void help() const;
-	void logIn(const MyString& EGN, const MyString& password);
-	void exit();
-
-	// client commands
-	void checkAvl(const MyString& bankName, unsigned accountID) const;
-	void openAccount(const MyString& bankName);
-	void closeAccount(const MyString& bankName, unsigned accountID);
-	void redeemCheque(const MyString& bankName, unsigned accountID, const MyString& code);
-	void changeBank(const MyString& newBankName, const MyString& currentBankName, unsigned accountID);
-	void listAccountsOfClient(const MyString& bankName);
-	void viewMessages() const;
-
-	//banker commands
-	void viewTasks() const;
-	void viewTask(unsigned taskIdx) const;
-	void approveTask(unsigned taskIdx);
-	void disapproveTask(unsigned taskIdx);
-	void validateTask(unsigned taskIdx);
-
-	//third party employees commands
-	void sendCheque(double sum, const MyString& code, const MyString& EGN);
+	void sendCheque(const MyString& EGN, const Cheque& Cheque, const MyString& sender);
+	void assignTaskToBank(const MyString& bankName, const polymorphic_ptr<Task>& task);
 };

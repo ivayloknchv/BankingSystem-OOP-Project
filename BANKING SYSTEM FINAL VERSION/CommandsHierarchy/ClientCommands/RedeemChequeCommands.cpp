@@ -25,13 +25,7 @@ void RedeemChequeCommands::execute(BankingSystem* system)
 	{
 		Bank& bankRef = system->getBankByName(bankName);
 		const Cheque& chequeRef = _ref.getCheque(code);
-		Account& accRef = bankRef.getAccountById(accountId);
-
-		if (accRef.getEGN() != _ref.getEGN())
-		{
-			throw std::invalid_argument("Trying to access some else's account!");
-		}
-		accRef.addBalance(chequeRef.getSum());
+		bankRef.changeBalanceOfAccount(accountId, chequeRef.getSum());
 		_ref.removeCheque(code);
 
 		std::cout << "Cheque redeeemed! Check your account balance!" << std::endl<<std::endl;

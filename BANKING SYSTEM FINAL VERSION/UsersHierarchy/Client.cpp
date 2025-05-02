@@ -154,15 +154,4 @@ void Client::readFromFile(std::ifstream& ifs)
 	}
 }
 
-void Client::help() const
-{
-	std::cout << "check_avl [bank_name] [account_number]" << std::endl;
-	std::cout << "open [bank_name]" << std::endl;
-	std::cout << "close [bank_name] [account_number]" << std::endl;
-	std::cout << "redeem [bank_name] [account_number] [verification_code]" << std::endl;
-	std::cout << "change [new_bank_name] [current_bank_name] [account_number]" << std::endl;
-	std::cout << "list [bank_name]" << std::endl;
-	std::cout << "messages" << std::endl;
-}
-
 

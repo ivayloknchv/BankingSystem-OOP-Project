@@ -20,17 +20,15 @@ void OpenAccountCommands::execute(BankingSystem* system)
 	std::cin >> bankName;
 	std::cout << std::endl;
 	
-	Task* obj = new OpenAccountTask(_ref.getFirstName(), _ref.getLastName(), _ref.getEGN(), _ref.getAge());
-
 	try
 	{
-		system->getBankByName(bankName).assignTask(obj);
+		polymorphic_ptr<Task> task = new OpenAccountTask(_ref.getFirstName(), _ref.getLastName(), _ref.getEGN(), _ref.getAge());
+		system->assignTaskToBank(bankName, task);
 		std::cout << "Successfully sent a request for a new bank account!" << std::endl << std::endl;
 	}
 
 	catch (std::invalid_argument& e)
 	{
-		delete obj;
 		std::cout << e.what() << std::endl << std::endl;
 	}
 }

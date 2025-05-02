@@ -21,7 +21,7 @@ static bool isValidCode(const MyString& code)
 	return true;
 }
 
-SendChequeCommands::SendChequeCommands(const ThirdPartyEmployee& ref) : _ref(ref)
+SendChequeCommands::SendChequeCommands(ThirdPartyEmployee& ref) : ThirdPartyCommands(ref)
 {}
 
 Commands* SendChequeCommands::clone() const
@@ -48,9 +48,9 @@ void SendChequeCommands::execute(BankingSystem* system)
 			throw std::invalid_argument("Invalid unique code. Code must be 3 symbols, only letters and digits allowed!");
 		}
 
-		Client& clientRef = system->getClientByEGN(EGN);
-		clientRef.addCheque(Cheque(code, sum));
-		clientRef.addMessage("You have a check assigned to you by " + _ref.getFirstName());
+		system->sendCheque(EGN, Cheque(code, sum), _ref.getFirstName());
+
+		std::cout << "Successfully sent a cheque!" << std::endl << std::endl;
 	}
 
 	catch(std::invalid_argument& e)

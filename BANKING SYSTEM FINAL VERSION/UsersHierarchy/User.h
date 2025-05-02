@@ -25,7 +25,6 @@ public:
 
 	bool isValidPassword(const MyString& password) const;
 	virtual void whoAmI() const = 0;
-	virtual void help() const = 0;
 	virtual User* clone() const = 0;
 	virtual ~User() = default;
 

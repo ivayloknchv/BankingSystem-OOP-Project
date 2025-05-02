@@ -29,8 +29,3 @@ void ThirdPartyEmployee::readFromFile(std::ifstream& ifs)
 {
 	User::readFromFile(ifs);
 }
-
-void ThirdPartyEmployee::help() const
-{
-	std::cout << "send_cheque [sum] [verification_code] [egn]" << std::endl;
-}

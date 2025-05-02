@@ -17,6 +17,7 @@ void DisapproveTaskCommands::sendMessage(BankingSystem* system, Task* task)
 		clRef.addMessage(Message("Your request wasn't approved. Reason: " + msg));
 		std::cout << std::endl;
 	}
+
 }
 
 DisapproveTaskCommands::DisapproveTaskCommands(Banker& ref) : BankerCommands(ref)

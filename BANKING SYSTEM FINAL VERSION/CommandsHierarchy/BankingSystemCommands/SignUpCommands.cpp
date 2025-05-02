@@ -18,7 +18,7 @@ static bool isValidName(const MyString& string)
 
 static bool validateUserData(const MyString& firstName, const MyString& lastName, const MyString& EGN, unsigned age)
 {
-    /*if (!isValidName(firstName))
+    if (!isValidName(firstName))
     {
         throw std::invalid_argument("First name isn't correctly formatted!");
     }
@@ -33,7 +33,7 @@ static bool validateUserData(const MyString& firstName, const MyString& lastName
     if (!isValidAge(age))
     {
         throw std::invalid_argument("Users under 18 years old cannot open a bank account!");
-    }*/
+    }
 
     return true;
 }
