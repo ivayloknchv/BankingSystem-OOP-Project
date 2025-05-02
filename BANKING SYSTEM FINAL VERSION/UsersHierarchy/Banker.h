@@ -13,11 +13,14 @@ class Banker : public User
 public:
 
 	Banker() = default;
-	Banker(const MyString& firstName, const MyString& lastName, const MyString& EGN, const MyString& password, unsigned age, const MyString& workplace);
-	Banker(MyString&& firstName, MyString&& lastName, MyString&& EGN, MyString&& password, unsigned age, MyString&& workplace);
+	Banker(const MyString& firstName, const MyString& lastName, const MyString& EGN, 
+		const MyString& password, unsigned age, const MyString& workplace);
+	Banker(MyString&& firstName, MyString&& lastName, MyString&& EGN, 
+		MyString&& password, unsigned age, MyString&& workplace);
 
 	void whoAmI() const override;
 	User* clone() const override;
+	virtual void help() const override;
 
 	const MyString& getWorkplace() const;
 
@@ -27,6 +30,10 @@ public:
 	void removeTaskAt(size_t idx);
 	void previewTasks() const;
 	void viewTask(size_t idx) const;
+
+	void approveTask(size_t idx);
+	void disapproveTask(size_t idx);
+	void validateTask(size_t idx);
 
 	size_t getTasksCount() const;
 	const Task* getTask(size_t idx) const;

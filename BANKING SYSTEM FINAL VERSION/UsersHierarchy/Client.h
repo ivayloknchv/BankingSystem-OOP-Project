@@ -29,15 +29,16 @@ public:
 	Cheque& getCheque(const MyString& uniqueCode);
 
 	void removeCheque(const MyString& uniqueCode);
-
 	void listMessages() const;
 
 	void whoAmI() const override;
-
+	virtual void help() const override;
 	User* clone() const override;
 
 	void writeToFile(std::ofstream& ofs) const override;
 	void readFromFile(std::ifstream& ifs) override;
+
+
 
 };
 
