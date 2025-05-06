@@ -1,6 +1,6 @@
 #include "WhoAmICommand.h"
 
-void WhoAmICommand::execute(BankingSystem* system)
+void WhoAmICommand::execute(BankingSystem* system) const
 {
     try
     {

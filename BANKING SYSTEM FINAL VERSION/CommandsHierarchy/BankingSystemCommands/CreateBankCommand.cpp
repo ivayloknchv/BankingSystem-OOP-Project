@@ -5,7 +5,7 @@ Command* CreateBankCommand::clone() const
     return nullptr;
 }
 
-void CreateBankCommand::execute(BankingSystem* system)
+void CreateBankCommand::execute(BankingSystem* system) const
 {
     MyString bankName;
     std::cin >> bankName;

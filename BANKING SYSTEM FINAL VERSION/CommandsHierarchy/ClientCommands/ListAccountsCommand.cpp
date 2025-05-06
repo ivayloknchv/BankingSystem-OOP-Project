@@ -5,7 +5,7 @@ Command* ListAccountsCommand::clone() const
     return new ListAccountsCommand(*this);
 }
 
-void ListAccountsCommand::execute(BankingSystem* system)
+void ListAccountsCommand::execute(BankingSystem* system) const
 {
     MyString bankName;
     std::cin >> bankName;

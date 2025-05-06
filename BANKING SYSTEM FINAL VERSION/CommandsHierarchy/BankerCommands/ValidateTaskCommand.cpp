@@ -5,7 +5,7 @@ Command* ValidateTaskCommand::clone() const
 	return new ValidateTaskCommand(*this);
 }
 
-void ValidateTaskCommand::execute(BankingSystem* system)
+void ValidateTaskCommand::execute(BankingSystem* system) const
 {
 	unsigned taskIdx;
 	std::cin >> taskIdx;

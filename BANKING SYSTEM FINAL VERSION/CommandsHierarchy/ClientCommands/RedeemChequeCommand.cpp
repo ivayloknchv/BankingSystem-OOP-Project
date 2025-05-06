@@ -5,12 +5,11 @@ Command* RedeemChequeCommand::clone() const
 	return new RedeemChequeCommand(*this);
 }
 
-void RedeemChequeCommand::execute(BankingSystem* system)
+void RedeemChequeCommand::execute(BankingSystem* system) const
 {
 	MyString bankName, code;
 	unsigned accountId;
 
-	std::cout << "Enter bank name>> ";
 	std::cin >> bankName >> code >> accountId;
 
 	try

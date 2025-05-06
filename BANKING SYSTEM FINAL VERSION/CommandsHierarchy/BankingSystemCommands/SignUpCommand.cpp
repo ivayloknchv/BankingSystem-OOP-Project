@@ -56,7 +56,7 @@ static void userInput(MyString& firstName, MyString& lastName, MyString& EGN, un
     std::cin >> password;
 }
 
-void SignUpCommand::registerClient(BankingSystem* system)
+void SignUpCommand::registerClient(BankingSystem* system) const
 {
     try
     {
@@ -82,7 +82,7 @@ void SignUpCommand::registerClient(BankingSystem* system)
     }
 }
 
-void SignUpCommand::registerBanker(BankingSystem* system)
+void SignUpCommand::registerBanker(BankingSystem* system) const
 {
     try
     {
@@ -118,7 +118,7 @@ void SignUpCommand::registerBanker(BankingSystem* system)
     }
 }
 
-void SignUpCommand::registerThirdParty(BankingSystem* system)
+void SignUpCommand::registerThirdParty(BankingSystem* system) const
 {
     try
     {
@@ -148,7 +148,7 @@ Command* SignUpCommand::clone() const
     return new SignUpCommand(*this);
 }
 
-void SignUpCommand::execute(BankingSystem* system)
+void SignUpCommand::execute(BankingSystem* system) const
 {
     std::cout << "Sign up as: "<<std::endl;
     std::cout << "1) Client" << std::endl;

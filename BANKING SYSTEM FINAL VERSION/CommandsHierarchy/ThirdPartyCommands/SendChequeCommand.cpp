@@ -5,7 +5,7 @@ Command* SendChequeCommand::clone() const
 	return new SendChequeCommand(*this);
 }
 
-void SendChequeCommand::execute(BankingSystem* system)
+void SendChequeCommand::execute(BankingSystem* system) const
 {
 	MyString EGN, code;
 	double sum = 0.00;

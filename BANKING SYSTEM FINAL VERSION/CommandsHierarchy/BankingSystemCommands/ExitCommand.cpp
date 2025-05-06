@@ -1,6 +1,6 @@
 #include "ExitCommand.h"
 
-void ExitCommand::execute(BankingSystem* system)
+void ExitCommand::execute(BankingSystem* system) const
 {
     try
     {

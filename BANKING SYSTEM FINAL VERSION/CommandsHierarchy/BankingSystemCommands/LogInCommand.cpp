@@ -5,7 +5,7 @@ Command* LogInCommand::clone() const
     return new LogInCommand(*this);
 }
 
-void LogInCommand::execute(BankingSystem* system)
+void LogInCommand::execute(BankingSystem* system) const
 {
     try
     {

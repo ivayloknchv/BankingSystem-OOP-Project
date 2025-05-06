@@ -5,7 +5,7 @@ Command* CloseAccountCommand::clone() const
 	return new CloseAccountCommand(*this);
 }
 
-void CloseAccountCommand::execute(BankingSystem* system)
+void CloseAccountCommand::execute(BankingSystem* system) const
 {
 	MyString bankName;
 	unsigned accountId = 0;

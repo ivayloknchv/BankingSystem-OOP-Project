@@ -5,7 +5,7 @@ Command* ShowMessagesCommand::clone() const
 	return new ShowMessagesCommand(*this);
 }
 
-void ShowMessagesCommand::execute(BankingSystem* system)
+void ShowMessagesCommand::execute(BankingSystem* system) const
 {
 	try
 	{

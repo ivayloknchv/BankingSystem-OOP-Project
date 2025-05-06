@@ -5,12 +5,12 @@ class SignUpCommand : public Command
 {
 private:
 
-	void registerClient(BankingSystem* system);
-	void registerBanker(BankingSystem* system);
-	void registerThirdParty(BankingSystem* system);
+	void registerClient(BankingSystem* system) const;
+	void registerBanker(BankingSystem* system) const;
+	void registerThirdParty(BankingSystem* system) const;
 
 public:
 	Command* clone() const override;
-	void execute(BankingSystem* system) override;
+	void execute(BankingSystem* system) const override;
 };
 

@@ -4,7 +4,7 @@
 class WhoAmICommand : public Command
 {
 public:
-	virtual void execute(BankingSystem* system) override;
-	virtual Command* clone() const override;
+	void execute(BankingSystem* system) const override;
+	Command* clone() const override;
 };
 

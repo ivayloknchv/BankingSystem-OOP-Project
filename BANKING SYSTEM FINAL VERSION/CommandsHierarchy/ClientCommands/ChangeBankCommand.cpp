@@ -6,7 +6,7 @@ Command* ChangeBankCommand::clone() const
     return new ChangeBankCommand(*this);
 }
 
-void ChangeBankCommand::execute(BankingSystem* system)
+void ChangeBankCommand::execute(BankingSystem* system) const
 {
     MyString newBank, currentBank;
     unsigned accountId;

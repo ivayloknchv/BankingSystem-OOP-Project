@@ -5,6 +5,6 @@ class ApproveTaskCommand : public Command
 {
 public:
 	Command* clone() const override;
-	void execute(BankingSystem* system);
+	void execute(BankingSystem* system) const override;
 };
 

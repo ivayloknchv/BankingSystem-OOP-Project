@@ -5,7 +5,7 @@ Command* ViewTaskCommand::clone() const
 	return new ViewTaskCommand(*this);
 }
 
-void ViewTaskCommand::execute(BankingSystem* system)
+void ViewTaskCommand::execute(BankingSystem* system) const
 {
 	size_t taskIdx = 0;
 	std::cin >> taskIdx;
