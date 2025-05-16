@@ -252,6 +252,7 @@ void Bank::readFromFile(std::ifstream& ifs, MyVector<polymorphic_ptr<User>>& use
 			if (users[j]->getEGN() == EGN)
 			{
 				Banker* banker = dynamic_cast<Banker*>(users[j].get());
+				_bankers.push_back(banker);
 			}
 		}
 	}
