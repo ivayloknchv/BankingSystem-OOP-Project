@@ -10,7 +10,7 @@ void RedeemChequeCommand::execute(BankingSystem* system) const
 	MyString bankName, code;
 	unsigned accountId;
 
-	std::cin >> bankName >> code >> accountId;
+	std::cin >> bankName >> accountId >> code;
 
 	try
 	{

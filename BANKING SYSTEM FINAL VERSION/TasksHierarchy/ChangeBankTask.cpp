@@ -85,8 +85,8 @@ void ChangeBankTask::approve() const
 		Account newAccount = Account(_firstName, _lastName, _EGN, _age, _newBank);
 		newAccount.addBalance(_balance);
 		system.getBankByName(_newBank).addAccount(std::move(newAccount));
-		system.getClientByEGN(_newBank).addMessage(std::move(Message("Transferred your account from "
-			+ _currentBank + " to " + _newBank)));
+		system.sendMessage(_EGN, (std::move(Message("Transferred your account from "
+			+ _currentBank + " to " + _newBank))));
 	}
 	else if (_status == Status::NeedsValidation)
 	{
@@ -107,7 +107,7 @@ void ChangeBankTask::disapprove() const
 	BankingSystem& system = BankingSystem::getInstance();
 
 	MyString msg = "Your request to transfer an account from " + _currentBank + " to " + _newBank+ " was disapproved. Reason: " + msg;
-	system.getClientByEGN(_EGN).addMessage(std::move(Message(msg)));
+	system.sendMessage(_EGN, std::move(Message(msg)));
 }
 
 void ChangeBankTask::validate()

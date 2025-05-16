@@ -10,43 +10,35 @@
 #include "../Components/Message.h"
 #include "../TasksHierarchy/Task.h"
 
-enum class LoggedType
-{
-	Unknown, 
-	Client,
-	Banker,
-	ThirdParty
-};
 
 class BankingSystem
 {
-	struct loggedInData
+	struct LoggedInData
 	{
 		User* logged = nullptr;
-		LoggedType type = LoggedType::Unknown;
+		Client* loggedClient = nullptr;
+		Banker* loggedBanker = nullptr;
+		ThirdPartyEmployee* loggedThirdParty = nullptr;
+		UserType type = UserType::Unknown;
 	};
 
-	loggedInData loggedData;
+	LoggedInData loggedData;
 
+	MyVector<polymorphic_ptr<User>> _users;
 	MyVector<Bank> _banks;
-	MyVector<Client> _clients;
-	MyVector<ThirdPartyEmployee> _thirdParty;
 
 	bool userExists(const User* user) const;
+	size_t findUserByEGN(const MyString& EGN) const;
 	size_t findBankByName(const MyString& name) const;
-	size_t findClientByEGN(const MyString& EGN) const;
-	size_t findThirdPartyByEGN(const MyString& EGN) const;
 
 	void writeToFile() const;
 	void readFromFile();
 
-	void saveClients() const;
+	void saveUsers() const;
 	void saveBanks() const;
-	void saveThirdParty() const;
 
-	void loadClients();
+	void loadUsers();
 	void loadBanks();
-	void loadThirdParty();
 
 	BankingSystem();
 	~BankingSystem();
@@ -61,22 +53,23 @@ public:
 	void addBank(const Bank& bank);
 	void addBank(Bank&& bank);
 
-	void addClient(const Client& client);
-	void addClient(Client&& client);
+	void addClient(const MyString& firstName, const MyString& lastName, const MyString& EGN, const MyString& password, unsigned age);
+	void addClient(MyString&& firstName, MyString&& lastName, MyString&& EGN, MyString&& password, unsigned age);
 
-	void addBanker(const Banker& banker, const MyString& bankName);
-	void addBanker(Banker&& banker, MyString&& bankName);
+	void addBanker(const MyString& firstName, const MyString& lastName, const MyString& EGN, 
+		const MyString& password, unsigned age, const MyString& bankName);
+	void addClient(MyString&& firstName, MyString&& lastName, MyString&& EGN, MyString&& password, unsigned age, MyString&& bankName);
 
-	void addThirdPartyEmployee(const ThirdPartyEmployee& thirdParty);
-	void addThirdPartyEmployee(ThirdPartyEmployee&& thirdParty);
+	void addThirdPartyEmployee(const MyString& firstName, const MyString& lastName, const MyString& EGN, const MyString& password, unsigned age);
+	void addThirdPartyEmployee(MyString&& firstName, MyString&& lastName, MyString&& EGN, MyString&& password, unsigned age);
 
 	size_t getBanksCount() const;
 
 	const Bank& getBankByName(const MyString& name) const;
 	Bank& getBankByName(const MyString& name);
 
-	const Client& getClientByEGN(const MyString& EGN) const;
-	Client& getClientByEGN(const MyString& EGN);
+	void sendMessage(const MyString& clientEGN, const Message& message);
+	void sendMessage(const MyString& clientEGN, Message&& message);
 
 	// common user interface
 	void whoAmI() const;

@@ -7,10 +7,15 @@ void BankingSystemLauncher::run()
 	BankingSystem& system = BankingSystem::getInstance();
 	MyString cmd = "";
 	
-	while(cmd != "stop")
+	while(true)
 	{
 		std::cout << "Enter you command here>> ";
 		std::cin >> cmd;
+
+		if (cmd == "stop")
+		{
+			break;
+		}
 
 		polymorphic_ptr<Command> command = CommandFactory::createCommand(cmd);
 

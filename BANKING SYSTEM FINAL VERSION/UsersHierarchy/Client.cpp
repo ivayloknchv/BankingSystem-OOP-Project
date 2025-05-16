@@ -109,6 +109,9 @@ User* Client::clone() const
 
 void Client::writeToFile(std::ofstream& ofs) const
 {
+	UserType tp = UserType::Client;
+	ofs.write((const char*)&tp, sizeof(tp));
+
 	User::writeToFile(ofs);
 
 	size_t chequesCount = _cheques.size();

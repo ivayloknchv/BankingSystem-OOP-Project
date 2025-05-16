@@ -71,7 +71,7 @@ void SignUpCommand::registerClient(BankingSystem* system) const
         
         if (validateUserData(firstName, lastName, EGN, age))
         {
-            system->addClient(Client(firstName, lastName, EGN, password, age));
+            system->addClient(firstName, lastName, EGN, password, age);
             std::cout << "Successfully registrated a new client in the system!";
         }
     }
@@ -105,7 +105,7 @@ void SignUpCommand::registerBanker(BankingSystem* system) const
 
         if (validateUserData(firstName, lastName, EGN, age))
         {
-            system->addBanker(Banker(firstName, lastName, EGN, password, age, bankName), bankName);
+            system->addBanker(firstName, lastName, EGN, password, age, bankName);
             std::cout << "Successfully registrated a new banker in the system!" << std::endl << std::endl;
         }
 
@@ -132,7 +132,7 @@ void SignUpCommand::registerThirdParty(BankingSystem* system) const
 
         if (validateUserData(firstName, lastName, EGN, age))
         {
-            system->addThirdPartyEmployee(ThirdPartyEmployee(firstName, lastName, EGN, password, age));
+            system->addThirdPartyEmployee(firstName, lastName, EGN, password, age);
             std::cout << "Successfully registrated a new third-party employee in the system!" << std::endl << std::endl;
         }       
     }

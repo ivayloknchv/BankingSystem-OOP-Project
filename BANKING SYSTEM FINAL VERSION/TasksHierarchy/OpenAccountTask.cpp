@@ -48,7 +48,7 @@ void OpenAccountTask::approve() const
 {
 	BankingSystem& system = BankingSystem::getInstance();
 	system.getBankByName(_bankName).addAccount(std::move(Account(_firstName, _lastName, _EGN, _age, _bankName)));
-	system.getClientByEGN(_EGN).addMessage(std::move(Message("Created an account in " + _bankName)));
+	system.sendMessage(_EGN, std::move(Message("Created an account in " + _bankName)));
 }
 
 void OpenAccountTask::disapprove() const
@@ -60,5 +60,5 @@ void OpenAccountTask::disapprove() const
 	BankingSystem& system = BankingSystem::getInstance();
 
 	MyString msg = "Your request to open an account in " + _bankName + " was disapproved. Reason: " + msg;
-	system.getClientByEGN(_EGN).addMessage(std::move(Message(msg)));
+	system.sendMessage(_EGN, (std::move(Message(msg))));
 }

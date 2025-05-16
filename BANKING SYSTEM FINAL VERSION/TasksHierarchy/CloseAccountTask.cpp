@@ -55,7 +55,7 @@ void CloseAccountTask::approve() const
 {
 	BankingSystem& system = BankingSystem::getInstance();
 	system.getBankByName(_bankName).removeAccountByID(_accountId);
-	system.getClientByEGN(_EGN).addMessage(std::move(Message("Removed your account from " + _bankName)));
+	system.sendMessage(_EGN, std::move(Message("Removed your account from " + _bankName)));
 }
 
 void CloseAccountTask::disapprove() const
@@ -67,5 +67,5 @@ void CloseAccountTask::disapprove() const
 	BankingSystem& system = BankingSystem::getInstance();
 
 	MyString msg = "Your request to close an account in " + _bankName + " was rejected. Reason: " + msg;
-	system.getClientByEGN(_EGN).addMessage(std::move(Message(msg)));
+	system.sendMessage(_EGN, std::move(Message(msg)));
 }

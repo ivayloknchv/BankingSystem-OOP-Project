@@ -2,6 +2,15 @@
 #include "../Helpers/MyString.h"
 #include "../Helpers/HelperFuncs.h"
 
+
+enum class UserType
+{
+	Unknown,
+	Client,
+	Banker,
+	ThirdParty
+};
+
 class User
 {
 protected:
@@ -32,4 +41,5 @@ public:
 	virtual void writeToFile(std::ofstream& ofs) const = 0;
 	virtual void readFromFile(std::ifstream& ifs) = 0;
 };
+
 

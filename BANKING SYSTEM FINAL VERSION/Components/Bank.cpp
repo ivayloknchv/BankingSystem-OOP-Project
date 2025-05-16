@@ -9,7 +9,7 @@ size_t Bank::findLeastEmployed() const
 
 	for (size_t i = 0; i < size; i++)
 	{
-		if (_bankers[min].getTasksCount() > _bankers[i].getTasksCount())
+		if (_bankers[min]->getTasksCount() > _bankers[i]->getTasksCount())
 		{
 			min = i;
 		}
@@ -23,7 +23,7 @@ size_t Bank::findBankerByEGN(const MyString& EGN) const
 
 	for (size_t i = 0; i < size; i++)
 	{
-		if (_bankers[i].getEGN() == EGN)
+		if (_bankers[i]->getEGN() == EGN)
 		{
 			return i;
 		}
@@ -54,14 +54,9 @@ Bank::Bank(MyString&& bankName) : _bankName(std::move(bankName))
 {
 }
 
-void Bank::addBanker(const Banker& banker)
+void Bank::addBanker(Banker* banker)
 {
 	_bankers.push_back(banker);
-}
-
-void Bank::addBanker(Banker&& banker)
-{
-	_bankers.push_back(std::move(banker));
 }
 
 void Bank::addAccount(const Account& acc)
@@ -116,7 +111,7 @@ void Bank::assignTask(Task* ptr)
 	}
 	size_t idx = findLeastEmployed();
 
-	_bankers[idx].addTask(ptr);
+	_bankers[idx]->addTask(ptr);
 }
 
 void Bank::assignTask(const polymorphic_ptr<Task>& task)
@@ -127,7 +122,7 @@ void Bank::assignTask(const polymorphic_ptr<Task>& task)
 	}
 	size_t idx = findLeastEmployed();
 
-	_bankers[idx].addTask(task);
+	_bankers[idx]->addTask(task);
 }
 
 void Bank::previewAccountsOfClient(const MyString& clientEGN) const
@@ -151,7 +146,7 @@ void Bank::previewAccountsOfClient(const MyString& clientEGN) const
 	}
 }
 
-const Banker& Bank::getBankerByEGN(const MyString& EGN) const
+const Banker* Bank::getBankerByEGN(const MyString& EGN) const
 {
 	size_t idx = findBankerByEGN(EGN);
 
@@ -163,7 +158,7 @@ const Banker& Bank::getBankerByEGN(const MyString& EGN) const
 	return _bankers[idx];
 }
 
-const Banker& Bank::getBankerByIdx(size_t idx) const
+const Banker* Bank::getBankerByIdx(size_t idx) const
 {
 	if (idx < 0 || idx >= _bankers.size())
 	{
@@ -173,7 +168,7 @@ const Banker& Bank::getBankerByIdx(size_t idx) const
 	return _bankers[idx];
 }
 
-Banker& Bank::getBankerByIdx(size_t idx)
+Banker* Bank::getBankerByIdx(size_t idx)
 {
 	if (idx < 0 || idx >= _bankers.size())
 	{
@@ -227,7 +222,7 @@ void Bank::writeToFile(std::ofstream& ofs) const
 
 	for (size_t i = 0; i < bankersCount; i++)
 	{
-		_bankers[i].writeToFile(ofs);
+		writeStringToFile(ofs, _bankers[i]->getEGN());
 	}
 
 	size_t accountsCount = _accounts.size();
@@ -240,7 +235,7 @@ void Bank::writeToFile(std::ofstream& ofs) const
 	}
 }
 
-void Bank::readFromFile(std::ifstream& ifs)
+void Bank::readFromFile(std::ifstream& ifs, MyVector<polymorphic_ptr<User>>& users)
 {
 	_bankName = readStringFromFile(ifs);
 
@@ -250,10 +245,15 @@ void Bank::readFromFile(std::ifstream& ifs)
 
 	for (size_t i = 0; i < bankersCount; i++)
 	{
-		Banker temp;
-		temp.readFromFile(ifs);
+		MyString EGN = readStringFromFile(ifs);
 
-		_bankers.push_back(std::move(temp));
+		for (size_t j = 0; j < users.size(); j++)
+		{	
+			if (users[j]->getEGN() == EGN)
+			{
+				Banker* banker = dynamic_cast<Banker*>(users[j].get());
+			}
+		}
 	}
 
 	size_t accountsCount = 0;

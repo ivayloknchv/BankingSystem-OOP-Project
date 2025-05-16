@@ -20,7 +20,7 @@ public:
 
 	void whoAmI() const override;
 	User* clone() const override;
-	virtual void help() const override;
+	void help() const override;
 
 	const MyString& getWorkplace() const;
 
@@ -41,5 +41,6 @@ public:
 
 	void writeToFile(std::ofstream& ofs) const override;
 	void readFromFile(std::ifstream& ifs) override;
+
 };
 

@@ -22,6 +22,8 @@ void ThirdPartyEmployee::whoAmI() const
 
 void ThirdPartyEmployee::writeToFile(std::ofstream& ofs) const
 {
+	UserType tp = UserType::ThirdParty;
+	ofs.write((const char*)&tp, sizeof(tp));
 	User::writeToFile(ofs);
 }
 
@@ -32,5 +34,5 @@ void ThirdPartyEmployee::readFromFile(std::ifstream& ifs)
 
 void ThirdPartyEmployee::help() const
 {
-	std::cout << "send_cheque [sum] [verification_code] [egn]" << std::endl;
+	std::cout << "send_cheque [sum] [egn] [verification_code]" << std::endl;
 }

@@ -143,6 +143,9 @@ Task* Banker::getTask(size_t idx)
 
 void Banker::writeToFile(std::ofstream& ofs) const
 {
+	UserType tp = UserType::Banker;
+
+	ofs.write((const char*)&tp, sizeof(tp));
 	User::writeToFile(ofs);
 
 	writeStringToFile(ofs, _workplace);
